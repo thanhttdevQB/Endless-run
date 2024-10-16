@@ -70,3 +70,10 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+[Libraries]
+[Libraries]
+/[Libraries]/Libr/LibrAdj*[adjacencies]
+# Ignore project Libraries folder that is auto-generated
+/[][lib_libadj]=[connections] attributes_.git-lfs=
+layers=json-strings.header connected32**help

@@ -24,7 +24,7 @@ public class BackgroundLoop : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(isRunning);
+        //Debug.Log(isRunning);
         if (isRunning)
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime);

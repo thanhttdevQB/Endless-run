@@ -13,7 +13,7 @@ public class NinjaFrogBuyButton : MonoBehaviour
         currentButton = GameObject.Find("NinjaFrogButton").GetComponent<Button>();
         currentButton.onClick.AddListener(OnButtonClick);
 
-        _commonBuyButton.InitInterface<NinjaFrog>(currentButton, "NinjaFrog", "NinjaFrogButton");
+        _commonBuyButton.InitInterface<NinjaFrog>(currentButton, "NinjaFrog_Store", "NinjaFrogButton");
     }
 
     // Update is called once per frame
@@ -23,6 +23,6 @@ public class NinjaFrogBuyButton : MonoBehaviour
 
     public void OnButtonClick()
     {
-        _commonBuyButton.OnClickButton<NinjaFrog>("NinjaFrog", "NinjaFrogButton", 100);
+        _commonBuyButton.OnClickButton<NinjaFrog>("NinjaFrog_Store", "NinjaFrogButton", 100);
     }
 }

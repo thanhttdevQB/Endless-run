@@ -13,16 +13,17 @@ public class PinkManBuyButton : MonoBehaviour
         currentButton = GameObject.Find("PinkManButton").GetComponent<Button>();
         currentButton.onClick.AddListener(OnButtonClick);
 
-        _commonBuyButton.InitInterface<PinkMan>(currentButton, "PinkMan", "PinkManButton");
+        _commonBuyButton.InitInterface<PinkMan>(currentButton, "PinkMan_Store", "PinkManButton");
     }
 
     // Update is called once per frame
     void Update()
     {
+
     }
 
     public void OnButtonClick()
     {
-        _commonBuyButton.OnClickButton<PinkMan>("PinkMan", "PinkManButton", 100);
+        _commonBuyButton.OnClickButton<PinkMan>("PinkMan_Store", "PinkManButton", 100);
     }
 }

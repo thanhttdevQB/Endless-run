@@ -68,10 +68,10 @@ public class Move : MonoBehaviour
 
     void GameOver()
     {
-        //if (rb.position.y < -10 || !BG.GetComponent<BackgroundLoop>().isRunning)
-        //{
-        //    FindObjectOfType<GameManager>().EndGame();
-        //}
+        if (rb.position.y < -10 || !BG.GetComponent<BackgroundLoop>().isRunning)
+        {
+            FindObjectOfType<GameManager>().EndGame();
+        }
     }
 }
 

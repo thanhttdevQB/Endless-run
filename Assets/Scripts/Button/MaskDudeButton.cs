@@ -13,7 +13,7 @@ public class MaskDudeButton : MonoBehaviour
         currentButton = GameObject.Find("MaskDudeButton").GetComponent<Button>();
         currentButton.onClick.AddListener(OnButtonClick);
 
-        _commonBuyButton.InitInterface<MaskDude>(currentButton, "MaskDude", "MaskDudeButton");
+        _commonBuyButton.InitInterface<MaskDude>(currentButton, "MaskDude_Store", "MaskDudeButton");
     }
 
     // Update is called once per frame
@@ -23,6 +23,6 @@ public class MaskDudeButton : MonoBehaviour
 
     public void OnButtonClick()
     {
-        _commonBuyButton.OnClickButton<MaskDude>("MaskDude", "MaskDudeButton", 100);
+        _commonBuyButton.OnClickButton<MaskDude>("MaskDude_Store", "MaskDudeButton", 100);
     }
 }

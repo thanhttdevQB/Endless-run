@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour
 {
     public GameObject bullet;
     public Transform firePos;
-    public float TimeBtwFire = 0.2f;
+    public float TimeBtwFire = 0.8f;
     public float bulletForce;
 
     private float timeBtwFire;
@@ -22,8 +22,6 @@ public class Weapon : MonoBehaviour
             FireBullet();
         }
 
-
-
     }
     void FireBullet()
     {
@@ -31,6 +29,7 @@ public class Weapon : MonoBehaviour
         GameObject bulletTmp = Instantiate(bullet, firePos.position, Quaternion.identity);
         Rigidbody2D rb = bulletTmp.GetComponent<Rigidbody2D>();
         rb.AddForce(transform.right * bulletForce, ForceMode2D.Impulse);
+        Destroy(bulletTmp, 1f);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

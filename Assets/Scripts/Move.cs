@@ -19,7 +19,7 @@ public class Move : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
-        BG = GameObject.Find("BG1");
+        BG = GameObject.Find("BG");
     }
 
     void Update()
@@ -48,7 +48,7 @@ public class Move : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("MatDat"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
             if (Input.GetKey("up"))
             {
@@ -59,7 +59,7 @@ public class Move : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("VatCan"))  // Check if the character collides with a rock
+        if (collision.gameObject.CompareTag("Obstacle"))  // Check if the character collides with a Obstacle
         {
             BG.GetComponent<BackgroundLoop>().isRunning = false;
             rb.velocity = new Vector2(rb.velocity.x, -1 * jumpForce);

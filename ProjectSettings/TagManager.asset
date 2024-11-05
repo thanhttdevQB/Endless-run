@@ -4,12 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - MatDat
-  - VatCan
   - Coin
   - Heart
-  - Trap
   - Bullet
+  - Ground
+  - Obstacle
+  - Enemies
+  - Level
+  - Audio
   layers:
   - Default
   - TransparentFX

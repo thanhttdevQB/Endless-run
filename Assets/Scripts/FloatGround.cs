@@ -19,11 +19,11 @@ public class FloatGround : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GroundY = GameObject.Find("matdat1").transform.position.y;
-        GroundHeight = GameObject.Find("matdat1").GetComponent<BoxCollider2D>().size.y;
+        //GroundY = GameObject.Find("matdat1").transform.position.y;
+        //GroundHeight = GameObject.Find("matdat1").GetComponent<BoxCollider2D>().size.y;
         objectY = GameObject.Find("Player").transform.position.y;
-        //Debug.Log("objectY" + objectY);
-        //Debug.Log("ground" + (GroundY + GroundHeight));
+        Debug.Log("objectY" + objectY);
+        Debug.Log("ground" + (GroundY + GroundHeight));
 
         if (objectY >= (GroundY + GroundHeight))
         {

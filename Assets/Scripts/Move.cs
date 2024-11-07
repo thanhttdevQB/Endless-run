@@ -8,6 +8,7 @@ public class Move : MonoBehaviour
     private bool isfacingRight = true;
     private float left_right;
     public GameObject BG;
+    public GameObject StartButton;
 
     public float jumpForce;  // The force of the jump
     public bool isGrounded = true;
@@ -24,16 +25,30 @@ public class Move : MonoBehaviour
 
     void Update()
     {
-        left_right = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(left_right * speed, rb.velocity.y);
-        ani.SetFloat("move", Mathf.Abs(left_right));
-        turn_around();
-        float positionY = GameObject.Find("Player").transform.position.y;
-        if (positionY < -5)
+        bool isStart;
+        if (StartButton == null)
         {
-            BG.GetComponent<BackgroundLoop>().isRunning = false;
+            isStart = true;
         }
-        GameOver();
+        else
+        {
+            StartButton = GameObject.Find("StartButton");
+            StartButton startButton = StartButton.GetComponent<StartButton>();
+            isStart = startButton.IsStart;
+        }
+        if (isStart != false)
+        {
+            left_right = Input.GetAxis("Horizontal");
+            rb.velocity = new Vector2(left_right * speed, rb.velocity.y);
+            ani.SetFloat("move", Mathf.Abs(left_right));
+            turn_around();
+            float positionY = GameObject.Find("Player").transform.position.y;
+            if (positionY < -5)
+            {
+                BG.GetComponent<BackgroundLoop>().isRunning = false;
+            }
+            GameOver();
+        }
     }
     void turn_around()
     {

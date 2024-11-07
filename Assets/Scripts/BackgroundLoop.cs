@@ -9,6 +9,7 @@ public class BackgroundLoop : MonoBehaviour
     public float startPosition = 20f;      // Vị trí bắt đầu lại của nền (bên phải màn hình)
     public bool isRunning = true;          // Kiểm soát nền có cuộn hay không
     private float backgroundWidth;         // Chiều rộng của nền
+    public GameObject StartButton;
 
     void Start()
     {
@@ -16,13 +17,28 @@ public class BackgroundLoop : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(isRunning);
-        if (isRunning)
+        StartButton = GameObject.Find("StartButton");
+        bool isStart;
+        if (StartButton == null)
         {
-            transform.Translate(Vector3.left * speed * Time.deltaTime);// Di chuyển nền sang trái theo tốc độ xác định
-            if (transform.position.x < resetPosition)// Nếu nền ra khỏi màn hình (vị trí nhỏ hơn resetPosition), reset nó về vị trí bắt đầu (startPosition)
+            isStart = true;
+        }
+        else
+        {
+            StartButton = GameObject.Find("StartButton");
+            StartButton startButton = StartButton.GetComponent<StartButton>();
+            isStart = startButton.IsStart;
+        }
+        if (isStart != false)
+        {
+            Debug.Log(isRunning);
+            if (isRunning)
             {
-                transform.position = new Vector3(startPosition, transform.position.y, transform.position.z);
+                transform.Translate(Vector3.left * speed * Time.deltaTime);// Di chuyển nền sang trái theo tốc độ xác định
+                if (transform.position.x < resetPosition)// Nếu nền ra khỏi màn hình (vị trí nhỏ hơn resetPosition), reset nó về vị trí bắt đầu (startPosition)
+                {
+                    transform.position = new Vector3(startPosition, transform.position.y, transform.position.z);
+                }
             }
         }
     }

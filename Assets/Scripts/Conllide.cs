@@ -17,6 +17,7 @@ public class Collide : MonoBehaviour
     public TextMeshProUGUI KillText;
 
     public GameObject BG;
+    public GameObject StartButton;
 
     public static Collide instance;
 
@@ -27,12 +28,27 @@ public class Collide : MonoBehaviour
 
     void Update()
     {
-        CoinText.SetText(Coin.ToString());
-        HeartText.SetText(Heart.ToString());
-        KillText.SetText(Kill.ToString());
-        if (Heart <= 0)
+        StartButton = GameObject.Find("StartButton");
+        bool isStart;
+        if (StartButton == null)
         {
-            GameOver();
+            isStart = true;
+        }
+        else
+        {
+            StartButton = GameObject.Find("StartButton");
+            StartButton startButton = StartButton.GetComponent<StartButton>();
+            isStart = startButton.IsStart;
+        }
+        if(isStart != false)
+        {
+            CoinText.SetText(Coin.ToString());
+            HeartText.SetText(Heart.ToString());
+            KillText.SetText(Kill.ToString());
+            if (Heart <= 0)
+            {
+                GameOver();
+            }
         }
     }
     private void Awake()
